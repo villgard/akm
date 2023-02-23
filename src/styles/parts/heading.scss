@@ -26,7 +26,9 @@
       background-image: url("public/gradient-bg.png");
       background-size: 100% 660px;
       background-position: center 46%;
-      animation: appearance .6s linear;
+      animation: appearance .6s linear forwards;
+      animation-delay: 3s;
+      backface-visibility: hidden;
       &::before, &::after {
         content: url("public/bracket.svg");
         position: absolute;
@@ -53,6 +55,15 @@
   }
   p {
     margin-top: 30px;
+    overflow: hidden;
+    span {
+      overflow: hidden;
+      &._show {
+        animation: appearance-top 2s 1 both;
+        animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+        animation-delay: 4s;
+      }
+    }
   }
 }
 
@@ -82,7 +93,7 @@
       line-height: 19px;
     }
   }
-  #increase {
+  .increase {
     display: none;
   }
 }

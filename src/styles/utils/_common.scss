@@ -57,6 +57,43 @@ body {
   }
 }
 
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+    animation-timing-function: linear;
+  }
+  80% {
+    transform: translateX(0);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateX(111px);
+  }
+}
+
+@keyframes appearance-top {
+  from{
+    opacity: 0;
+    transform: perspective(1000px) translate3d(0px, 200px, 0px) rotate3d(-100, 0, 0, 0deg);
+  }
+  to{
+    opacity: 1;
+    transform: perspective(500px) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes appearance-bottom {
+  from{
+    opacity: 0;
+    transform: perspective(1000px) translate3d(0px, -200px, 0px) rotate3d(-100, 0, 0, 0deg);
+  }
+  to{
+    opacity: 1;
+    transform: perspective(-500px) translate3d(0, 0, 0);
+  }
+}
+
 .cta__link {
   font-size: 12px;
   padding: 1px 2px;
@@ -78,7 +115,14 @@ body {
     z-index: -1;
   }
 }
-
+.js-animated {
+  overflow: hidden;
+  &._show {
+    animation: appearance-top 2s 1 both;
+    animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    animation-delay: 0.5s;
+  }
+}
 .mail__link {
   font-size: 20px;
   text-decoration: underline;
@@ -126,5 +170,12 @@ body {
   .title-h2 {
     line-height: 47px;
     font-size: 30px;
+  }
+  .animated-title {
+    img {
+      width: 188px;
+      height: 118px;
+      top: -43px;
+    }
   }
 }

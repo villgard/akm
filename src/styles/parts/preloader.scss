@@ -1,0 +1,66 @@
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  &._hidden {
+    transition: all 500ms ease-in-out;
+    z-index: -10;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &__inner {
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    img {
+      &:first-child {
+        width: 84px;
+      }
+      &:nth-child(2) {
+        width: 114px;
+        animation: appearance-top 2s 1 both;
+        animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+        animation-delay: 0.5s;
+      }
+      &:last-child {
+        width: 6px;
+        position: relative;
+        left: -111px;
+        animation: moveRight 1.5s linear forwards;
+        backface-visibility: hidden;
+      }
+    }
+  }
+  &__agency {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 6px;
+    overflow: hidden;
+    img {
+      animation: appearance-bottom 2s 1 both;
+      animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+      animation-delay: 0.5s;
+      &:first-child {
+        width: 58px;
+        margin-bottom: 4px;
+      }
+      &:nth-child(2) {
+        width: 50px;
+        margin-bottom: 4px;
+      }
+      &:last-child {
+        width: 32px;
+      }
+    }
+  }
+}

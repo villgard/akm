@@ -21,5 +21,10 @@
   .accounts {
     flex-direction: column;
     justify-content: flex-start;
+    h2 {
+      img {
+        top: -33px;
+      }
+    }
   }
 }

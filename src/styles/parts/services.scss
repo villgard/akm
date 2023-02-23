@@ -16,6 +16,15 @@
   }
   &__caption {
     margin-bottom: 60px;
+    overflow: hidden;
+    span {
+      overflow: hidden;
+      &._show {
+        animation: appearance-top 2s 1 both;
+        animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+        animation-delay: 0.5s;
+      }
+    }
   }
   &__content {
     max-width: 540px;
@@ -44,5 +53,10 @@
   .services {
     flex-direction: column;
     justify-content: flex-start;
+    &__heading {
+      img {
+        top: 5px;
+      }
+    }
   }
 }
