@@ -7,6 +7,9 @@
     max-width: 480px;
     width: 100%;
     text-align: center;
+    img {
+      top: -5px;
+    }
   }
   &__title {
     padding: 40px 0;
