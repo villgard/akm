@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AKM ORIGINALS</title>
+  </head>
+  <body>
+    <header class="header">
+      <section class="header__inner container">
+        <div class="header__logo logo">
+          <img src="./public/logo-name.png" alt="AKM ORIGINALS" class="logo__img-name">
+          <img src="./public/logo-pma.png" alt="PROGRESSIVE MARKETING AGENCY" class="logo__img-pma">
+        </div>
+        <div class="header__inner-inn" id="menu">
+          <nav class="header__nav nav nav__links">
+            <ul class="nav__list nav__list-anchors">
+              <li class="nav__item"><a href="#about" class="nav__link">about us</a></li>
+              <li class="nav__item"><a href="#services" class="nav__link">services</a></li>
+              <li class="nav__item"><a href="#work" class="nav__link">work & projects</a></li>
+              <li class="nav__item"><a href="#contacts" class="nav__link">contacts</a></li>
+            </ul>
+          </nav>
+          <nav class="header__nav nav nav__social">
+            <ul class="nav__list nav__list-social">
+              <li class="nav__item-social"><a href="https://wa.me/6281246341693" target="_blank" class="nav__link-social"><img src="public/wa.svg" alt="wa"></a></li>
+              <li class="nav__item-social"><a href="https://instagram.com/akm.originals?igshid=YWJhMjlhZTc=" target="_blank" class="nav__link-social"><img src="public/instagram.svg" alt="instagram"></a></li>
+              <li class="nav__item-social"><a href="https://t.me/LabelProd" target="_blank" class="nav__link-social"><img src="public/tg.svg" alt="telegram"></a></li>
+            </ul>
+          </nav>
+          <a href="#contacts" class="header__cta cta__link">get in touch</a>
+          <span class="header__mail mail__link">
+            <a href="mailto:info@akm-originals.com" target="_blank">info@akm-originals.com</a>
+          </span>
+        </div>
+        <span class="header__burger" id="switcher"></span>
+      </section>
+      <div class="header__border"></div>
+    </header>
+    <main class="main" id="main">
+      <section class="main__heading heading">
+        <div class="heading__inner">
+          <h1>Good business is the best art</h1>
+          <span id="increase">Good business is the best art</span>
+        </div>
+        <p class="caption">Social media marketing</p>
+      </section>
+      <section class="main__about about container" id="about">
+        <h2 class="about__heading">
+          <span>About Us</span>
+<!--          <img src="public/gradient-bg.png" alt="1">-->
+        </h2>
+        <div class="about__text">
+          <p class="js-animated">Years of experience in the advertising business gives us opportunities to find new people, new ideas and to create solutions all globally through communication between our brand and the customers, blurring the line between online and offline, creating bright, efficient and innovating advertising for our partners.</p>
+          <p class="js-animated">AKM a unique combination of local expertise, connections and successful experience as well as the global capabilities of the largest international network.</p>
+          <p class="js-animated">We work to ensure that your business finds customers all over the world!</p>
+        </div>
+      </section>
+      <section class="main__services services container" id="services">
+        <div class="services__heading">
+          <h2 class="services__title title-h2">
+            <span>Services</span>
+            <!--          <img src="public/gradient-bg.png" alt="1">-->
+          </h2>
+          <p class="services__caption caption">what do we offer</p>
+          <a href="#contacts" class="services__link cta__link">Get in touch</a>
+        </div>
+        <div class="services__content">
+          <!-- slider here? -->
+        </div>
+      </section>
+      <section class="main__accounts accounts container">
+        <div class="accounts__heading">
+          <h2 class="title-h2">our accounts</h2>
+          <p class="caption">28 million subscribers net ig</p>
+        </div>
+        <div class="accounts__content">
+          <!-- slider here? -->
+        </div>
+      </section>
+      <section class="main__work work container" id="work">
+        <h2>
+          <span class="title-h2">work & projects</span>
+        </h2>
+        <div class="work__content">
+          <!-- content-->
+        </div>
+      </section>
+      <section class="main__contacts contacts container" id="contacts">
+        <div class="contacts__heading">
+          <h2>
+            <span>Contacts</span>
+<!--            <img src="public/gradient-bg.png" alt="1">-->
+          </h2>
+          <a class="contacts__link mail__link js-animated" href="mailto:info@akm-originals.com" target="_blank">info@akm-originals.com</a>
+          <ul class="contacts__list-social">
+            <li class="contacts__item-social"><a href="https://wa.me/6281246341693" target="_blank" class="contacts__link-social"><img src="public/wa.svg" alt="wa"></a></li>
+            <li class="contacts__item-social"><a href="https://instagram.com/akm.originals?igshid=YWJhMjlhZTc=" target="_blank" class="contacts__link-social"><img src="public/instagram.svg" alt="instagram"></a></li>
+            <li class="contacts__item-social"><a href="https://t.me/LabelProd" target="_blank" class="contacts__link-social"><img src="public/tg.svg" alt="telegram"></a></li>
+          </ul>
+        </div>
+        <div class="contacts__inner">
+          <p class="contacts__caption js-animated">
+            <span class="contacts__text gradient-text animated-text">Let’s make your project a reality</span>
+            <span class="contacts__subtext js-animated">Feel free to reach out if you want to collaborate with us, or simply have a chat.</span>
+          </p>
+          <form action="POST" id="form" class="contacts__form form">
+            <label for="name" class="form-label">
+              <input type="text" id="name" name="name" class="form-input" placeholder="Name">
+            </label>
+            <label for="email" class="form-label">
+              <input type="text" id="email" name="email" class="form-input" placeholder="mail@example.com">
+            </label>
+            <label for="phone" class="form-label">
+              <input type="text" id="phone" name="phone" class="form-input" placeholder="Phone">
+            </label>
+            <button class="cta__link form-button" id="submit">Get in touch</button>
+          </form>
+        </div>
+      </section>
+      <section id="formPopup" class="form-popup _active"></section>
+    </main>
+    <footer class="footer container">
+      <span class="animated-text gradient-text">©AKM ORIGINALS 2023</span>
+      <a href="./policy.html" target="_blank" class="animated-text gradient-text">POLICY</a>
+    </footer>
+    <script type="module" src="/src/script/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+.work {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 80px;
+  h2 {
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+  }
+  &__content {
+    max-width: 580px;
+    width: 100%;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .work {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}

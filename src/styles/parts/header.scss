@@ -1,0 +1,222 @@
+.header {
+  position: fixed;
+  max-height: 60px;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(3px);
+  z-index: 10;
+  &__inner {
+    padding: 17px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-inn {
+      width: calc(100% - 240px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    z-index: 10;
+  }
+  &__border {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(-45deg, rgb(237 166 84), rgb(242 109 61), rgb(216 65 110), rgb(122 62 211), rgb(87 63 218));
+    background-size: 400%;
+    animation: gradient 5s ease infinite;
+    transform: translate3d(0, 0, 0);
+  }
+  &__burger {
+    display: none;
+  }
+  &__mail {
+    display: none;
+  }
+}
+
+.nav {
+  &__links {
+    max-width: 50%;
+    width: 100%;
+  }
+  &__social {
+    max-width: 110px;
+    width: 100%;
+  }
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__link {
+    font-size: 12px;
+    position: relative;
+    &::before, &::after {
+      position: absolute;
+      font-size: 17px;
+      z-index: 5;
+      opacity: 0;
+    }
+    &::before {
+      content: '[';
+      left: -8px;
+    }
+    &::after {
+      content: ']';
+      right: -8px;
+    }
+    &:hover {
+      background: linear-gradient(-45deg, rgb(237 166 84), rgb(242 109 61), rgb(216 65 110), rgb(122 62 211), rgb(87 63 218));
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-box-decoration-break: clone;
+      animation: gradient 5s ease infinite;
+      &::before, &::after {
+        opacity: 1;
+        transition: opacity .3s ease;
+        background: linear-gradient(-45deg, rgb(237 166 84), rgb(242 109 61), rgb(216 65 110), rgb(122 62 211), rgb(87 63 218));
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-box-decoration-break: clone;
+        animation: gradient 5s ease infinite;
+      }
+    }
+  }
+}
+
+.nav {
+  &__item-social {
+    width: 17px;
+    height: 17px;
+    transition: transform .4s;
+    &:hover {
+      transform: scale(1.3);
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.logo {
+  &__img {
+    &-name {
+      margin-right: 4px;
+      width: 168px;
+    }
+    &-pma {
+      width: 38px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    &__inner {
+      padding: 17px 15px;
+      &-inn {
+        position: fixed;
+        top: -467px;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        transition: top 1s ease;
+        background-color: #121212;
+        backdrop-filter: blur(3px);
+        &._active {
+          top: 60px;
+          padding-bottom: 100vh;
+        }
+      }
+    }
+    &__mail {
+      display: block;
+    }
+    &__burger {
+      display: block;
+      position: relative;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: #ffffff;
+        transition: .25s ease-in-out;
+      }
+      &::before {
+        top: 8px;
+      }
+      &::after {
+        top: 15px;
+      }
+      &._active {
+        &::before {
+          transform: rotate(-45deg);
+          top: 13px;
+        }
+        &::after {
+          transform: rotate(45deg);
+          top: 13px;
+        }
+      }
+    }
+    &__cta {
+      order: 2;
+    }
+    &__mail {
+      order: 3;
+      padding: 50px 0;
+      width: 100%;
+      text-align: center;
+      background-image: url("public/gradient-bg.png");
+      background-size: 100% 240px;
+      background-position: center 46%;
+    }
+  }
+  .logo {
+    &__img {
+      &-name {
+        width: 110px;
+      }
+      &-pma {
+        width: 30px;
+      }
+    }
+  }
+  .nav {
+    &__list {
+      &-anchors {
+        margin: 40px 0;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    &__social {
+      max-width: 210px;
+    }
+    &__item {
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+    }
+    &__link {
+      font-size: 15px;
+    }
+    &__links {
+      order: 1;
+    }
+    &__social {
+      order: 4;
+    }
+  }
+}
