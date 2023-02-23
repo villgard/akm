@@ -5,9 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>AKM ORIGINALS</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
   </head>
   <body>
-    <div class="preloader"></div>
     <header class="header">
       <section class="header__inner container">
         <div class="header__logo logo">
@@ -43,14 +46,14 @@
       <section class="main__heading heading">
         <div class="heading__inner">
           <h1>Good business is the best art</h1>
-          <span class="increase">Good business is the best art</span>
+          <span id="increase">Good business is the best art</span>
         </div>
         <p class="caption">Social media marketing</p>
       </section>
       <section class="main__about about container" id="about">
-        <h2 class="about__heading animated-title">
+        <h2 class="about__heading">
           <span>About Us</span>
-          <img class="js-animated-title-bg" src="public/gradient-bg.png" alt="1">
+<!--          <img src="public/gradient-bg.png" alt="1">-->
         </h2>
         <div class="about__text">
           <p class="js-animated">Years of experience in the advertising business gives us opportunities to find new people, new ideas and to create solutions all globally through communication between our brand and the customers, blurring the line between online and offline, creating bright, efficient and innovating advertising for our partners.</p>
@@ -60,45 +63,46 @@
       </section>
       <section class="main__services services container" id="services">
         <div class="services__heading">
-          <h2 class="services__title title-h2 animated-title">
+          <h2 class="services__title title-h2">
             <span>Services</span>
-            <img class="js-animated-title-bg" src="public/gradient-bg.png" alt="1">
+            <!--          <img src="public/gradient-bg.png" alt="1">-->
           </h2>
           <p class="services__caption caption">what do we offer</p>
           <a href="#contacts" class="services__link cta__link">Get in touch</a>
         </div>
         <div class="services__content">
-          <div class="pw">
-            <div class="slider">
-              <div class="slider__wrapper">
-                <div class="slider__artboard">
-                  <div class="slider__item"><img src="public/s1.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s2.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s3.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s4.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s5.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s6.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s7.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s8.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s9.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s10.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s11.png" alt="1"></div>
-                </div>
+          <img src="public/bracket.svg" alt="" class="slider__brecket slider__brecket--left">
+          <img src="public/bracket.svg" alt="" class="slider__brecket slider__brecket--right">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="public/s1.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s2.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s3.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s4.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s5.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s6.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s7.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s8.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s9.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s10.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s11.png" alt="1"></div>
+            </div>
+          </div>
+          <!-- <div class="slider">
+            <div class="slider__wrapper">
+              <div class="slider__artboard">
               </div>
             </div>
-            <div class="slider__nav">
-              <div class="slider__prev">p</div>
-              <div class="slider__next">n</div>
-            </div>
+          </div> -->
+          <div class="slider__nav">
+            <div class="slider__prev"><img src="public/arrowPrev.svg" alt=""></div>
+            <div class="slider__next"><img src="public/arrowNext.svg" alt=""></div>
           </div>
         </div>
       </section>
       <section class="main__accounts accounts container">
         <div class="accounts__heading">
-          <h2 class="title-h2 animated-title">
-            <span>our accounts</span>
-            <img class="js-animated-title-bg" src="public/gradient-bg.png" alt="1">
-          </h2>
+          <h2 class="title-h2">our accounts</h2>
           <p class="caption">28 million subscribers net ig</p>
         </div>
         <div class="accounts__content">
@@ -106,9 +110,8 @@
         </div>
       </section>
       <section class="main__work work container" id="work">
-        <h2 class="animated-title">
+        <h2>
           <span class="title-h2">work & projects</span>
-          <img class="js-animated-title-bg" src="public/gradient-bg.png" alt="1">
         </h2>
         <div class="work__content">
           <!-- content-->
@@ -116,9 +119,9 @@
       </section>
       <section class="main__contacts contacts container" id="contacts">
         <div class="contacts__heading">
-          <h2 class="animated-title">
+          <h2>
             <span>Contacts</span>
-            <img class="js-animated-title-bg" src="public/gradient-bg.png" alt="1">
+<!--            <img src="public/gradient-bg.png" alt="1">-->
           </h2>
           <a class="contacts__link mail__link js-animated" href="mailto:info@akm-originals.com" target="_blank">info@akm-originals.com</a>
           <ul class="contacts__list-social">
@@ -152,6 +155,7 @@
       <span class="animated-text gradient-text">©AKM ORIGINALS 2023</span>
       <a href="./policy.html" target="_blank" class="animated-text gradient-text">POLICY</a>
     </footer>
+    <script type="module" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script type="module" src="/src/script/main.js"></script>
   </body>
 </html>
