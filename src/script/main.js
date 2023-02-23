@@ -166,6 +166,7 @@ function removeReadonlyAttr() {
 }
 
 function showPopup() {
+  formPopup.classList.add('_active')
   formPopup.innerHTML = `
     <div class="popup-card active">
       <svg width="50" height="50" viewbox="0 0 50 50" fill="#62C584">
@@ -173,7 +174,7 @@ function showPopup() {
         <path d="M22.84 30.53l-4.44-4.45a.88.88 0 1 1 1.24-1.24l3.2 3.2 8.89-8.9a.88.88 0 1 1 1.25 1.26L22.84 30.53z" />
       </svg>
       <h4>Thank you! Your data has been submitted.</h4>
-      <button class="popup-card__btn">Close</button>
+      <button class="popup-card__btn"><span></span></button>
     </div>
   `;
   const popupBtn = document.querySelector('.popup-card__btn');
@@ -187,6 +188,7 @@ function showPopup() {
 }
 
 function closePopup() {
+  formPopup.classList.remove('_active');
   formPopup.innerHTML = '';
 }
 
