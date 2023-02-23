@@ -33,10 +33,6 @@ for (let anchor of anchors) {
   })
 }
 
-const { viewport } = zoomer();
-const meta = document.head.querySelector('meta[name="viewport"]');
-meta.setAttribute('content', `width=${viewport}, user-scalable=no`);
-
 function zoomer() {
   const links = document.querySelectorAll('.nav__link');
   const width = window.innerWidth;
@@ -55,25 +51,65 @@ function zoomer() {
   }
   return result;
 }
-
-const increase = document.getElementById('increase');
+const { viewport } = zoomer();
+const meta = document.head.querySelector('meta[name="viewport"]');
+meta.setAttribute('content', `width=${viewport}, user-scalable=no`);
 
 function onEntry(entry) {
   entry.forEach(change => {
     if (change.isIntersecting) {
-      change.target.classList.add('_show');
+      if (change.target.classList.contains('js-animated')) {
+        change.target.classList.add('_show');
+      }
+      if (change.target.classList.contains('js-animated-title-bg')) {
+        window.addEventListener("scroll", () => {
+          const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+          const maxScroll = scrollHeight - clientHeight;
+
+          const power = 2;
+          const scale = 1 + (scrollTop / maxScroll) * power;
+
+          change.target.style.transform = `scale(${scale})`;
+          if (scale >= 2.1) {
+            change.target.style.transform = `scale(2.1)`;
+          }
+        });
+      }
+      if (change.target.classList.contains('increase')) {
+        window.addEventListener("scroll", () => {
+          const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+          const maxScroll = scrollHeight - clientHeight;
+
+          const power = 1.2;
+          const scale = 1 + (scrollTop / maxScroll) * power;
+
+          change.target.style.transform = `scale(${scale})`;
+          if (scale >= 1.2) {
+            change.target.style.transform = `scale(1.2)`;
+          }
+        });
+      }
     }
   });
 }
 
-let options = {
-  threshold: [0.5] };
+let options = { threshold: [0.5] };
 let observer = new IntersectionObserver(onEntry, options);
 let elements = document.querySelectorAll('.js-animated');
+let titleBgs = document.querySelectorAll('.js-animated-title-bg');
+const increase = document.querySelector('.increase');
 
 for (let elm of elements) {
   observer.observe(elm);
 }
+
+for (let titleBg of titleBgs) {
+  observer.observe(titleBg);
+}
+
+observer.observe(increase);
 
 const form = document.getElementById('form');
 const submitFormBtn = document.getElementById('submit');
@@ -155,7 +191,6 @@ function submittingForm() {
 
   submitFormBtn.classList.add('disabled');
 }
-
 function removeReadonlyAttr() {
   const inputs = form.querySelectorAll('.form-input')
 
@@ -164,7 +199,6 @@ function removeReadonlyAttr() {
     input.removeAttribute('readonly');
   }
 }
-
 function showPopup() {
   formPopup.classList.add('_active')
   formPopup.innerHTML = `
@@ -186,12 +220,10 @@ function showPopup() {
     popupBtn.removeEventListener('click', closePopup);
   }, 4000);
 }
-
 function closePopup() {
   formPopup.classList.remove('_active');
   formPopup.innerHTML = '';
 }
-
 async function sendForm(e) {
   e.preventDefault();
 
@@ -222,3 +254,4 @@ async function sendForm(e) {
 checkSubmit();
 form.addEventListener('input', checkSubmit);
 form.addEventListener('submit', sendForm);
+
