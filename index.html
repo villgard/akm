@@ -5,6 +5,10 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>AKM ORIGINALS</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <div class="preloader">
@@ -79,28 +83,32 @@
           <a href="#contacts" class="services__link cta__link">Get in touch</a>
         </div>
         <div class="services__content">
-          <div class="pw">
-            <div class="slider">
-              <div class="slider__wrapper">
-                <div class="slider__artboard">
-                  <div class="slider__item"><img src="public/s1.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s2.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s3.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s4.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s5.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s6.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s7.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s8.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s9.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s10.png" alt="1"></div>
-                  <div class="slider__item"><img src="public/s11.png" alt="1"></div>
-                </div>
+          <img src="public/bracket.svg" alt="" class="slider__brecket slider__brecket--left">
+          <img src="public/bracket.svg" alt="" class="slider__brecket slider__brecket--right">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="public/s1.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s2.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s3.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s4.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s5.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s6.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s7.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s8.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s9.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s10.png" alt="1"></div>
+              <div class="swiper-slide"><img src="public/s11.png" alt="1"></div>
+            </div>
+          </div>
+          <!-- <div class="slider">
+            <div class="slider__wrapper">
+              <div class="slider__artboard">
               </div>
             </div>
-            <div class="slider__nav">
-              <div class="slider__prev">p</div>
-              <div class="slider__next">n</div>
-            </div>
+          </div> -->
+          <div class="slider__nav">
+            <div class="slider__prev"><img src="public/arrowPrev.svg" alt=""></div>
+            <div class="slider__next"><img src="public/arrowNext.svg" alt=""></div>
           </div>
         </div>
       </section>
@@ -164,6 +172,7 @@
       <span class="animated-text gradient-text">©AKM ORIGINALS 2023</span>
       <a href="./policy.html" target="_blank" class="animated-text gradient-text">POLICY</a>
     </footer>
+    <script type="module" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script type="module" src="/src/script/main.js"></script>
   </body>
 </html>

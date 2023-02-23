@@ -1,62 +1,63 @@
-.slider {
-  perspective: 200px;
-  perspective-origin: 50% 50%;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  overflow: hidden;
-  height: 646px;
-}
-.slider__wrapper {
-  perspective: 4000px;
-  perspective-origin: 50% 50%;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  overflow: visible;
-}
-.slider__artboard {
-  perspective: 4000px;
-  perspective-origin: 50% 50%;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  overflow: visible;
-  transition: all 0.2s ease;
-  height: 740px;
-  position: relative;
-  width: 100%;
-}
-.slider__item {
-  position: absolute;
-  perspective: 4000px;
-  perspective-origin: 50% 50%;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  overflow: visible;
-  transition: all 0.2s ease;
-  width: 447px;
-  left: 0.5px;
-  top: 47px;
-  height: 646px;
-  display: table;
+.swiper {
+  width: 300px;
 
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
+  &-slide {
+    overflow:visible;
+
+    img {
+      width: 100%;
+      transform: rotateX(14deg);
+      transition: 300ms ease-in-out;
+      transform-origin: center;
+    }
   }
 }
+
 .slider {
-  width: 100%;
-  top: 0px;
-  left: 0px !important;
-  position: absolute;
-  z-index: 10;
-}
-.slier_nav {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  z-index: 11;
-}
-.arrowleft:hover, .arrowright:hover {
-  cursor: pointer;
+
+  &__nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    > div {
+      transform: translateY(-50%);
+      transition: 200ms ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        opacity: .6;
+      }
+    }
+  }
+
+  &__prev {
+    position: absolute;
+    top: 50%;
+    left: 36px;
+  }
+
+  &__next {
+    position: absolute;
+    top: 50%;
+    right: 36px;
+  }
+
+  &__brecket {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 19px;
+
+    &--left {
+      left: 0;
+    }
+
+    &--right {
+      right: 0;
+      transform: translateY(-50%) scaleX(-1);
+    }
+  }
 }

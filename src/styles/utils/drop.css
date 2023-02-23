@@ -26,3 +26,52 @@ li {
 
 img {
 }
+
+
+.boardclass {
+    perspective: 200px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+.boardclass > div {
+    perspective: 4000px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    overflow: visible;
+}
+.boardclass .t396__artboard {
+    perspective: 4000px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    overflow: visible;
+    transition: all 0.2s ease;
+}
+.boardclass .t396__artboard > .tn-elem {
+    perspective: 4000px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    overflow: visible;
+    transition: all 0.2s ease;
+    position: absolute;
+}
+.slidesblockclass {
+    width: 100%;
+    top: 0px;
+    left: 0px !important;
+    position: absolute;
+    z-index: 10;
+}
+.arrowblockclass {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    z-index: 11;
+}
+.arrowleft:hover, .arrowright:hover {
+    cursor: pointer;
+}
