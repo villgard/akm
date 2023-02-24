@@ -1,9 +1,11 @@
 .header {
   position: fixed;
   max-height: 60px;
+  height: 100%;
   top: 0;
   width: 100%;
   backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   z-index: 20;
   &__inner {
     padding: 17px 40px;
@@ -127,7 +129,7 @@
         width: 100%;
         flex-direction: column;
         justify-content: flex-start;
-        transition: top 1s ease;
+        transition: all 1s ease;
         background-color: #121212;
         backdrop-filter: blur(3px);
         &._active {

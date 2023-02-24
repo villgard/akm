@@ -14,7 +14,6 @@
 }
 
 .slider {
-
   &__nav {
     position: absolute;
     top: 0;
@@ -22,7 +21,7 @@
     height: 100%;
     width: 100%;
 
-    > div {
+    & > div {
       transform: translateY(-50%);
       transition: 200ms ease-in-out;
       cursor: pointer;

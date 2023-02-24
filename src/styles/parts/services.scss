@@ -1,5 +1,6 @@
 .services {
   padding-top: 80px;
+  margin-bottom: 200px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -17,14 +18,6 @@
   &__caption {
     margin-bottom: 60px;
     overflow: hidden;
-    span {
-      overflow: hidden;
-      &._show {
-        animation: appearance-top 2s 1 both;
-        animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
-        animation-delay: 0.5s;
-      }
-    }
   }
   &__content {
     max-width: 540px;
@@ -32,15 +25,6 @@
     height: 400px;
     position: relative;
 
-    .pw {
-      position: absolute !important;
-    top: 0px !important;
-    left: 0px !important;
-    width: 100% !important;
-    height: 11448px   !important;
-    border: none;
-    overflow: hidden !important;
-    }
   }
   &__link {
     font-size: 16px;
@@ -51,12 +35,23 @@
 
 @media screen and (max-width: 767px) {
   .services {
+    position: relative;
+    height: 730px;
+    margin-bottom: 0;
     flex-direction: column;
     justify-content: flex-start;
     &__heading {
       img {
         top: 5px;
       }
+    }
+    &__content {
+      position: absolute;
+      bottom: 125px;
+      height: 430px;
+    }
+    &__caption  {
+      margin-bottom: 560px;
     }
   }
 }
