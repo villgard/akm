@@ -1,17 +1,6 @@
 import '../styles/styles.scss';
 import JustValidate from "just-validate";
 
-const preloader = document.querySelector('.preloader');
-document.body.classList.add('_hidden');
-
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    preloader.classList.add('_hidden');
-    document.body.classList.remove('_hidden');
-  }, 3000);
-})
-
-
 const menu = document.getElementById('menu');
 const switcher = document.getElementById('switcher');
 const anchors = document.querySelectorAll('a[href^="#"]');
