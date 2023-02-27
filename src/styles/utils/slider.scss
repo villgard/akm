@@ -1,5 +1,11 @@
 .swiper {
-  width: 300px;
+  @media (max-width: 767px) {
+    width: 240px;
+  }
+  
+  @media (min-width: 768px) {
+    width: 300px;
+  }
 
   &-slide {
     overflow:visible;
@@ -20,6 +26,10 @@
     left: 0;
     height: 100%;
     width: 100%;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
 
     & > div {
       transform: translateY(-50%);
@@ -49,6 +59,10 @@
     top: 50%;
     transform: translateY(-50%);
     width: 19px;
+
+    @media (max-width: 767px) {
+      width: 15px;
+    }
 
     &--left {
       left: 0;

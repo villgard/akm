@@ -271,6 +271,27 @@ checkSubmit();
 form.addEventListener('input', checkSubmit);
 form.addEventListener('submit', sendForm);
 
+function touchSwipe(wrapper, sw) {
+  let touchStartX;
+  let touchEndX
+
+  const handleSwipe = () => {
+    if (touchEndX - touchStartX < -70) {
+      sw.slideNext()
+    } else if (touchEndX - touchStartX > 70) {
+      sw.slidePrev()
+    }
+  };
+
+  document.querySelector(wrapper).addEventListener('touchstart', (event) => {
+    touchStartX = event.changedTouches[0].clientX;
+  });
+
+  document.querySelector(wrapper).addEventListener('touchend', (event) => {
+    touchEndX = event.changedTouches[0].clientX;
+    handleSwipe();
+  });
+};
 
 let swiper = new Swiper(".mySwiper", {
   effect: "cards",
@@ -281,6 +302,9 @@ let swiper = new Swiper(".mySwiper", {
   autoplay: true,
   grabCursor: false,
   initialSlide: 2,
+  allowTouchMove: false,
+  simulateTouch: false,
+  noSwipingClass: 'swiper-no-swiping',
   keyboard: {
   enabled: true,
   },
@@ -292,8 +316,14 @@ let swiper = new Swiper(".mySwiper", {
   navigation: {
     nextEl: '.slider__prev',
     prevEl: '.slider__next',
+  },
+  on: {
+    afterInit(sw) {
+      touchSwipe('.services__content', sw);
+    }
   }
 });
+
 
 let swiperSec = new Swiper(".mySwiperSec", {
   effect: "cards",
@@ -304,6 +334,9 @@ let swiperSec = new Swiper(".mySwiperSec", {
   autoplay: true,
   grabCursor: false,
   initialSlide: 2,
+  allowTouchMove: false,
+  simulateTouch: false,
+  noSwipingClass: 'swiper-no-swiping',
   keyboard: {
     enabled: true,
   },
@@ -312,6 +345,11 @@ let swiperSec = new Swiper(".mySwiperSec", {
     slideShadows: false,
     perSlideOffset: 8,
   },
+  on: {
+    afterInit(sw) {
+      touchSwipe('.accounts__content', sw);
+    }
+  }
 })
 
 let swiperThird = new Swiper(".mySwiperThird", {
@@ -323,6 +361,9 @@ let swiperThird = new Swiper(".mySwiperThird", {
   autoplay: true,
   grabCursor: false,
   initialSlide: 2,
+  allowTouchMove: false,
+  simulateTouch: false,
+  noSwipingClass: 'swiper-no-swiping',
   keyboard: {
     enabled: true,
   },
@@ -334,5 +375,10 @@ let swiperThird = new Swiper(".mySwiperThird", {
   navigation: {
     nextEl: '.slider__prev',
     prevEl: '.slider__next',
+  },
+  on: {
+    afterInit(sw) {
+      touchSwipe('.work__content', sw);
+    }
   }
 });

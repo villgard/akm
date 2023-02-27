@@ -41,15 +41,20 @@
     justify-content: flex-start;
     margin-bottom: 0;
     &__heading {
-      line-height: 31px;
-      font-size: 20px;
+      line-height: 47px;
+      font-size: 30px;
       margin-bottom: 60px;
+
+      img {
+        top: -34px;
+      }
     }
     &__text {
       p {
         margin-bottom: 6px;
         font-size: 10px;
         line-height: 13px;
+        transform: translateY(50%);
       }
     }
   }

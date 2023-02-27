@@ -9,7 +9,7 @@
     width: 100%;
     text-align: center;
     img {
-      top: -5px;
+      top: -12px;
     }
   }
   &__title {
@@ -42,16 +42,18 @@
     justify-content: flex-start;
     &__heading {
       img {
-        top: 5px;
+        top: 7px;
       }
     }
     &__content {
       position: absolute;
-      bottom: 125px;
-      height: 430px;
+      bottom: 170px;
+      height: auto;
+      width: calc(100% - 40px);
+      left: 20px;
     }
     &__caption  {
-      margin-bottom: 560px;
+      margin-bottom: 480px;
     }
   }
 }

@@ -51,6 +51,10 @@
       opacity: 0.44;
       color: transparent;
       -webkit-text-stroke: 1px #666666;
+
+      @media (min-width: 768px) {
+        white-space: nowrap;
+      }
     }
   }
   p {
@@ -84,13 +88,16 @@
           top: 85px;
         }
       }
+
+      span {
+        line-height: 1;
+        font-size: 44px;
+        text-align: center;
+      }
     }
     p {
       font-size: 12px;
       line-height: 19px;
     }
-  }
-  .increase {
-    display: none;
   }
 }
