@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "sass": "^1.58.3",
     "vite": "^4.1.0"
   },
   "dependencies": {
     "just-validate": "^4.2.0",
-    "sass": "^1.58.3",
     "swiper": "^9.0.5"
   }
 }
