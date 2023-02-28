@@ -90,36 +90,6 @@ function onEntry(entry) {
       if (change.target.classList.contains('js-animated')) {
         change.target.classList.add('_show');
       }
-      if (change.target.classList.contains('js-animated-title-bg')) {
-        window.addEventListener("scroll", () => {
-          const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-
-          const maxScroll = scrollHeight - clientHeight;
-
-          const power = 2;
-          const scale = 1 + (scrollTop / maxScroll) * power;
-
-          change.target.style.transform = `scale(${scale})`;
-          if (scale >= 2.1) {
-            change.target.style.transform = `scale(2.1)`;
-          }
-        });
-      }
-      if (change.target.classList.contains('increase')) {
-        window.addEventListener("scroll", () => {
-          const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-
-          const maxScroll = scrollHeight - clientHeight;
-
-          const power = 1.2;
-          const scale = 1 + (scrollTop / maxScroll) * power;
-
-          change.target.style.transform = `scale(${scale})`;
-          if (scale >= 1.2) {
-            change.target.style.transform = `scale(1.2)`;
-          }
-        });
-      }
     }
   });
 }
@@ -127,18 +97,11 @@ function onEntry(entry) {
 let options = { threshold: [0.5] };
 let observer = new IntersectionObserver(onEntry, options);
 let elements = document.querySelectorAll('.js-animated');
-let titleBgs = document.querySelectorAll('.js-animated-title-bg');
-const increase = document.querySelector('.increase');
 
 for (let elm of elements) {
   observer.observe(elm);
 }
 
-for (let titleBg of titleBgs) {
-  observer.observe(titleBg);
-}
-
-observer.observe(increase);
 
 const form = document.getElementById('form');
 const submitFormBtn = document.getElementById('submit');
