@@ -1,5 +1,6 @@
 import '../styles/styles.scss';
 import JustValidate from "just-validate";
+import { companies } from "./companies.js";
 
 const menu = document.getElementById('menu');
 const switcher = document.getElementById('switcher');
@@ -227,6 +228,7 @@ function showPopup() {
 function closePopup() {
   formPopup.classList.remove('_active');
   formPopup.innerHTML = '';
+  document.body.classList.remove('_hidden');
 }
 
 async function sendForm(e) {
@@ -381,3 +383,33 @@ let swiperThird = new Swiper(".mySwiperThird", {
     }
   }
 });
+
+const slides = document.getElementsByClassName('js-slide-btn');
+
+function openModal(id, title, caption) {
+  if (id) {
+    formPopup.innerHTML = `
+    <div class="popup-card active modal">
+      <h4>${title}</h4>
+      <p>${caption}</p>
+      <button class="popup-card__btn"><span></span></button>
+    </div>
+  `
+    document.body.classList.add('_hidden');
+
+    const popupBtn = document.querySelector('.popup-card__btn');
+
+    popupBtn.addEventListener('click', closePopup);
+  }
+}
+
+for (let i = 0; i < slides.length; i++) {
+  slides[i].addEventListener('click', (e) => {
+    let dataset = e.target.dataset;
+    for (let j = 0; j < companies.length; j++) {
+      formPopup.classList.add('_active');
+      companies[j].id = dataset.id
+      openModal(companies[j].id, companies[j].title, companies[j].caption);
+    }
+  })
+}
