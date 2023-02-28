@@ -9,7 +9,7 @@ function toggleMenu(e) {
   e.preventDefault();
   switcher.classList.toggle('_active');
   menu.classList.toggle('_active');
-  document.body.classList.remove('_hidden');
+  document.body.classList.toggle('_hidden');
 }
 
 switcher.addEventListener('click', toggleMenu);
