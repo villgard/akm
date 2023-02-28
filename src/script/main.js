@@ -240,12 +240,22 @@ async function sendForm(e) {
 
   submittingForm();
 
-  const response = await fetch('https://httpbin.org/post', {
+  const token = '6197694453:AAGpGVSQBlyFEBAEWAimnCKEofdzujQegsY';
+  const chatId = '-928277883';
+
+  const asString = new URLSearchParams(formData).toString();
+  const headerMessage = 'Request from akm-originals.com %0A';
+
+  const message = headerMessage + asString.replaceAll('=', ': ').replaceAll('&', '%0A');
+
+  const botUrl = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&parse_mode=html&text=${message}`
+
+  const response = await fetch(botUrl, {
     method: 'POST',
     body: formData,
   });
 
-  if (response.status === 200) {
+  if (response.ok) {
     showPopup();
     form.reset();
   } else {
