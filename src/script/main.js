@@ -57,6 +57,33 @@ function zoomer() {
   return result;
 }
 
+gsap.registerPlugin(ScrollTrigger);
+for (let i = 1; i < 6; i++) {
+  gsap.to(`.js-gsap-title-bg-${i}`, {
+    scrollTrigger: {
+      trigger: `.js-gsap-title-bg-${i}`,
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+      toggleActions: 'restart pause resume pause'
+    },
+    scale: 2.1,
+    ease: 'none',
+  });
+}
+
+gsap.to('.js-gsap-main-title', {
+  scrollTrigger: {
+    trigger: '.js-gsap-main-title',
+    start: 'top bottom',
+    end: 'bottom 400px',
+    scrub: true,
+    toggleActions: 'restart pause resume pause'
+  },
+  scale: 1.2,
+  ease: 'none',
+});
+
 function onEntry(entry) {
   entry.forEach(change => {
     if (change.isIntersecting) {
@@ -242,8 +269,8 @@ async function sendForm(e) {
 
   submittingForm();
 
-  const token = '6197694453:AAGpGVSQBlyFEBAEWAimnCKEofdzujQegsY';
-  const chatId = '-928277883';
+  const token = '5767341034:AAE4ec4aoHeWftuiVl9D6cIujEG8dRhOA3s';
+  const chatId = '-835301442';
 
   const asString = new URLSearchParams(formData).toString();
   const headerMessage = 'Request from akm-originals.com %0A';
@@ -315,8 +342,8 @@ let swiper = new Swiper(".mySwiper", {
     perSlideOffset: 8,
   },
   navigation: {
-    nextEl: '.slider__prev',
-    prevEl: '.slider__next',
+    nextEl: '.mySwiper__prev',
+    prevEl: '.mySwiper__next',
   },
   on: {
     afterInit(sw) {
@@ -346,6 +373,10 @@ let swiperSec = new Swiper(".mySwiperSec", {
     slideShadows: false,
     perSlideOffset: 8,
   },
+  navigation: {
+    nextEl: '.mySwiperSec__prev',
+    prevEl: '.mySwiperSec__next',
+  },
   on: {
     afterInit(sw) {
       touchSwipe('.accounts__content', sw);
@@ -374,8 +405,8 @@ let swiperThird = new Swiper(".mySwiperThird", {
     perSlideOffset: 8,
   },
   navigation: {
-    nextEl: '.slider__prev',
-    prevEl: '.slider__next',
+    nextEl: '.mySwiperThird__prev',
+    prevEl: '.mySwiperThird__next',
   },
   on: {
     afterInit(sw) {

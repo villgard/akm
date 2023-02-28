@@ -124,6 +124,8 @@
     }
     &._disabled {
       cursor: default;
+      user-select: none;
+      pointer-events: none;
     }
   }
   &-popup {
