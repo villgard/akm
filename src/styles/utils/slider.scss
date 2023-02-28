@@ -109,7 +109,8 @@
     align-items: center;
   }
   &__header {
-    height: 102px;
+    max-height: 102px;
+    height: 100%;
     border-radius: 15px;
     border: 1px solid #676767;
     border-bottom-color: transparent;
@@ -192,27 +193,22 @@
   }
   &__logo {
     max-width: 170px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &.slide-modal {
     & > .slide-card__caption {
       justify-content: space-around;
     }
-    &:nth-child(1) {
-      & > .slide-card__logo {
-        img {
-          width: 120px;
-          height: 48px;
-        }
-      }
-
-    }
   }
 }
 
 @media screen and (max-width: 767px) {
   .slide-card {
-    height: 347px;
+    height: 100%;
     &__header {
       height: 80px;
     }

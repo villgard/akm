@@ -19,6 +19,9 @@
   .work {
     flex-direction: column;
     justify-content: flex-start;
+    &__content {
+      height: 350px;
+    }
     h2 {
       margin-bottom: 40px;
       img {
