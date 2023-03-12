@@ -1,5 +1,6 @@
 import '../styles/styles.scss';
 import JustValidate from "just-validate";
+import { companies } from "./companies.js";
 
 const menu = document.getElementById('menu');
 const switcher = document.getElementById('switcher');
@@ -38,6 +39,7 @@ const meta = document.head.querySelector('meta[name="viewport"]');
 meta.setAttribute('content', `width=${viewport}, user-scalable=no`);
 
 function zoomer() {
+  const links = document.querySelectorAll('.nav__link');
   const width = window.innerWidth;
   const result = {
     viewport: null,
@@ -46,55 +48,14 @@ function zoomer() {
   if (width >= 768) {
     result.viewport = 1200;
   } else if (width < 768) {
+    for (let link = 0; link < links.length; link++) {
+      links[link].classList.add('animated-text');
+      links[link].classList.add('gradient-text');
+    }
     result.viewport = 375;
   }
   return result;
 }
-
-gsap.registerPlugin(ScrollTrigger);
-for (let i = 1; i < 6; i++) {
-  gsap.to(`.js-gsap-title-bg-${i}`, {
-    scrollTrigger: {
-      trigger: `.js-gsap-title-bg-${i}`,
-      start: '50px bottom',
-      end: 'bottom 600px',
-      scrub: true,
-      toggleActions: 'restart pause resume pause'
-    },
-    scale: 2.6,
-    ease: 'none',
-  });
-}
-gsap.to('.js-gsap-main-title', {
-  scrollTrigger: {
-    trigger: '.js-gsap-main-title',
-    start: 'top bottom',
-    end: 'bottom 400px',
-    scrub: true,
-    toggleActions: 'restart pause resume pause'
-  },
-  scale: 1.2,
-  ease: 'none',
-});
-
-function onEntry(entry) {
-  entry.forEach(change => {
-    if (change.isIntersecting) {
-      if (change.target.classList.contains('js-animated')) {
-        change.target.classList.add('_show');
-      }
-    }
-  });
-}
-
-let options = { threshold: [0.5] };
-let observer = new IntersectionObserver(onEntry, options);
-let elements = document.querySelectorAll('.js-animated');
-
-for (let elm of elements) {
-  observer.observe(elm);
-}
-
 
 const form = document.getElementById('form');
 const submitFormBtn = document.getElementById('submit');
@@ -254,3 +215,149 @@ async function sendForm(e) {
 checkSubmit();
 form.addEventListener('input', checkSubmit);
 form.addEventListener('submit', sendForm);
+
+function touchSwipe(wrapper, sw) {
+  let touchStartX;
+  let touchEndX
+
+  const handleSwipe = () => {
+    if (touchEndX - touchStartX < -70) {
+      sw.slideNext()
+    } else if (touchEndX - touchStartX > 70) {
+      sw.slidePrev()
+    }
+  };
+
+  document.querySelector(wrapper).addEventListener('touchstart', (event) => {
+    touchStartX = event.changedTouches[0].clientX;
+  });
+
+  document.querySelector(wrapper).addEventListener('touchend', (event) => {
+    touchEndX = event.changedTouches[0].clientX;
+    handleSwipe();
+  });
+};
+
+// let swiper = new Swiper(".mySwiper", {
+//   effect: "fade",
+//   loop: true,
+//   autoplay: false,
+//   grabCursor: false,
+//   allowTouchMove: false,
+//   simulateTouch: false,
+//   keyboard: {
+//     enabled: true,
+//   },
+//   navigation: {
+//     nextEl: '.mySwiper__prev',
+//     prevEl: '.mySwiper__next',
+//   },
+//   on: {
+//     afterInit(sw) {
+//       touchSwipe('.services__content', sw);
+//     }
+//   }
+// });
+
+let swiperSec = new Swiper(".mySwiperSec", {
+  effect: "cards",
+  loop: true,
+  loopedSlides: 3,
+  slidesPerView: 1,
+  centeredSlides: true,
+  autoplay: true,
+  grabCursor: false,
+  initialSlide: 2,
+  noSwipingClass: 'swiper-no-swiping',
+  allowTouchMove: false,
+  simulateTouch: false,
+  keyboard: {
+    enabled: true,
+  },
+  cardsEffect: {
+    rotate: false,
+    slideShadows: false,
+    perSlideOffset: 8,
+  },
+  navigation: {
+    nextEl: '.mySwiperSec__prev',
+    prevEl: '.mySwiperSec__next',
+  },
+  on: {
+    afterInit(sw) {
+      touchSwipe('.accounts__content', sw);
+    }
+  }
+})
+
+let swiperThird = new Swiper(".mySwiperThird", {
+  effect: "cards",
+  loop: true,
+  loopedSlides: 3,
+  slidesPerView: 1,
+  centeredSlides: true,
+  autoplay: true,
+  grabCursor: false,
+  initialSlide: 2,
+  allowTouchMove: false,
+  simulateTouch: false,
+  noSwipingClass: 'swiper-no-swiping',
+  keyboard: {
+    enabled: true,
+  },
+  cardsEffect: {
+    rotate: false,
+    slideShadows: false,
+    perSlideOffset: 8,
+  },
+  navigation: {
+    nextEl: '.mySwiperThird__prev',
+    prevEl: '.mySwiperThird__next',
+  },
+  on: {
+    afterInit(sw) {
+      touchSwipe('.work__content', sw);
+    }
+  }
+});
+
+const slides = document.getElementsByClassName('js-slide-btn');
+
+function openModal(id, title, caption) {
+  if (id) {
+    formPopup.innerHTML = `
+    <div class="popup-card active modal">
+      <h4>${title}</h4>
+      <p>${caption}</p>
+      <button class="popup-card__btn"><span></span></button>
+    </div>
+  `
+    document.body.classList.add('_hidden');
+
+    const popupBtn = document.querySelector('.popup-card__btn');
+
+    popupBtn.addEventListener('click', closePopup);
+  }
+}
+
+for (let i = 0; i < slides.length; i++) {
+  slides[i].addEventListener('click', (e) => {
+    let dataset = e.target.dataset;
+    for (let j = 0; j < companies.length; j++) {
+      formPopup.classList.add('_active');
+      companies[j].id = dataset.id
+      openModal(companies[j].id, companies[j].title, companies[j].caption);
+    }
+  })
+}
+
+var wow = new WOW(
+  {
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 100,
+    mobile: true,
+    live: true,
+  }
+);
+wow.init();

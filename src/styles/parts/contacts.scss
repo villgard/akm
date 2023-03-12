@@ -73,13 +73,15 @@
       bottom: -100%;
       opacity: 0;
     }
-    &._show {
+    &.animated {
       opacity: 1;
-      transition: all 1s;
+      transition: all 800ms;
       transform: translateY(0%);
+
       &::before {
         height: 57px;
         opacity: 1;
+        transition-delay: 800ms;
         transition: all .6s ease;
         bottom: 0;
       }

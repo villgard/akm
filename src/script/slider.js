@@ -4,24 +4,24 @@ import { accounts } from "./accounts.js";
 let swiperPaginationEls = ['BRAND STRATEGY', 'SOCIAL MEDIA', 'TARGET', 'MARKETING STRATEGY', 'ANALYTICS', 'APPS', 'MUSIC', 'E-COMMERCE'];
 
 let swiper = new Swiper(".mySwiper", {
-  effect: "cards",
+  effect: "fade",
   loop: true,
-  loopedSlides: 3,
+  loopedSlides: 1,
   slidesPerView: 1,
   centeredSlides: true,
   grabCursor: false,
   initialSlide: 0,
   allowTouchMove: false,
   simulateTouch: false,
-  noSwipingClass: 'swiper-no-swiping',
+  // noSwipingClass: 'swiper-no-swiping',
   keyboard: {
     enabled: true,
   },
-  cardsEffect: {
-    rotate: false,
-    slideShadows: false,
-    perSlideOffset: 8,
-  },
+  // cardsEffect: {
+  //   rotate: false,
+  //   slideShadows: false,
+  //   perSlideOffset: 8,
+  // },
   navigation: {
     nextEl: '.mySwiper__next',
     prevEl: '.mySwiper__prev',

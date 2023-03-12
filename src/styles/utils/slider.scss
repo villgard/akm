@@ -32,6 +32,7 @@
     }
 
     & > div {
+      display: flex;
       transform: translateY(-50%);
       transition: 200ms ease-in-out;
       cursor: pointer;

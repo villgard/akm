@@ -6,6 +6,19 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  &__gradient {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: width 500ms ease-in-out, height 500ms ease-in-out, opacity 400ms ease-in-out;
+    width: 271px;
+    height: 169px;
+  }
+
   &__inner {
     position: relative;
     display: flex;
@@ -14,8 +27,41 @@
     width: 100%;
     overflow: hidden;
 
+    &.animated {
+
+      .heading__gradient {
+        transition-delay: 1000ms;
+        visibility: visible;
+        opacity: 1;
+        width: calc(271px * 3.9);
+        height: calc(169px * 3.9);
+      }
+
+      h1 {
+
+        .reveal-title {
+          max-width: 715px;
+        }
+
+        &::before {
+          left: 12px;
+        }
+
+        &::after {
+          right: 12px;
+        }
+      }
+
+      .increase {
+        visibility: visible;
+        opacity: .44;
+      }
+    }
+
     h1 {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
       z-index: 2;
       max-width: 800px;
@@ -25,39 +71,56 @@
       text-align: center;
       font-size: 48px;
       font-weight: 400;
-      background-image: url("public/gradient-bg.png");
-      background-size: 100% 660px;
-      background-position: center 47%;
-      animation: appearance-top 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+      zoom: 1.4;
+      // background-size: 100% 660px;
+      // background-position: center 47%;
+      // animation: appearance-top 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+
+
       .reveal-title {
         overflow: hidden;
-        animation: appearance-top 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+        display: inline-block;
+        height: 72px;
+        max-width: 0px;
+        transition: max-width 300ms ease-in-out;
+        white-space: nowrap;
+        transform-origin: left center;
+        transition-delay: 625ms;
+        text-align: left;
+        // max-width: 715px;
+        // animation: appearance-top 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
       }
+
       &::before, &::after {
         content: url("public/bracket.svg");
         position: absolute;
         width: 12px;
-        top: 90px;
+        height: 64.46px;
+        top: calc(50% - 32.23px);
+        transition: 300ms ease-in-out;
+        transition-delay: 600ms;
       }
       &::before {
-        left: -2px;
-
+        left: calc(50% - 12px);
+        transform: translateX(-50%);
       }
       &::after {
-        transform: scaleX(-1);
-        right: -2px;
-
+        transform: scaleX(-1) translateX(-50%);
+        right: calc(50% - 12px);
       }
     }
     .increase {
+      visibility: hidden;
+      opacity: 0;
       position: absolute;
       z-index: 1;
       line-height: 1.55;
-      font-size: 54px;
+      font-size: 92px;
       font-weight: 600;
-      opacity: 0.44;
       color: transparent;
       -webkit-text-stroke: 1px #666666;
+      transition: opacity 400ms ease-in-out;
+      transition-delay: 300ms;
 
       @media (min-width: 768px) {
         white-space: nowrap;
