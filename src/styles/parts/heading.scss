@@ -8,12 +8,14 @@
   flex-direction: column;
   &__inner {
     position: relative;
-    letter-spacing: 1.4px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    overflow: hidden;
+
     h1 {
+      display: block;
       position: relative;
       z-index: 2;
       max-width: 800px;
@@ -26,26 +28,32 @@
       background-image: url("public/gradient-bg.png");
       background-size: 100% 660px;
       background-position: center 47%;
-      animation: appearance .6s linear forwards;
-      backface-visibility: hidden;
+      animation: appearance-top 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+      .reveal-title {
+        overflow: hidden;
+        animation: appearance-top 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+      }
       &::before, &::after {
         content: url("public/bracket.svg");
         position: absolute;
         width: 12px;
+        top: 90px;
       }
       &::before {
         left: -2px;
+
       }
       &::after {
         transform: scaleX(-1);
         right: -2px;
+
       }
     }
-    span {
+    .increase {
       position: absolute;
       z-index: 1;
       line-height: 1.55;
-      font-size: 66px;
+      font-size: 54px;
       font-weight: 600;
       opacity: 0.44;
       color: transparent;
@@ -59,8 +67,16 @@
   p {
     margin-top: 30px;
     overflow: hidden;
-    span {
-      opacity: 0;
+    animation: appearance-top 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+  }
+
+  &__nav {
+    max-width: 245px;
+    margin-top: 20px;
+    overflow: hidden;
+    &-list {
+      justify-content: space-around;
+      animation: appearance-top 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
     }
   }
 }
@@ -73,28 +89,34 @@
         font-size: 30px;
         line-height: 27px;
         background-size: 100% 240px;
+        letter-spacing: 1px;
         &::before, &::after {
           width: 9px;
           height: 48px;
+          top: 88px;
         }
         &::before {
           left: -12px;
         }
         &::after {
           right: -12px;
-          top: 85px;
         }
       }
 
-      span {
+      .increase {
         line-height: 1;
-        font-size: 44px;
+        font-size: 36px;
         text-align: center;
       }
     }
     p {
-      font-size: 12px;
-      line-height: 19px;
+      font-size: 18px;
+      line-height: 20px;
+      color: transparent;
+      -webkit-text-stroke: 1px #cccccc;
+    }
+    &__nav {
+      max-width: 160px;
     }
   }
 }

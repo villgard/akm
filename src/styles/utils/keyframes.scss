@@ -1,0 +1,84 @@
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes appearance {
+  0% {
+    opacity: 0;
+    transform: scale(0,0);
+  }
+  100% {
+    opacity:1;
+    transform:scale(1,1)
+  }
+}
+
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+    animation-timing-function: linear;
+  }
+  80% {
+    transform: translateX(0);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateX(111px);
+  }
+}
+
+@keyframes toLeft {
+  from {
+    left: 50%;
+  }
+  to {
+    left: -2px;
+  }
+}
+
+@keyframes appearance-top {
+  from{
+    transform: translate(0, 100%);
+  }
+  to{
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes appearance-bottom {
+  from{
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotateGradient {
+  0% {
+    background: linear-gradient(45deg, rgb(237, 166, 84), rgb(242, 109, 61), rgb(216, 65, 110), rgb(122, 62, 211), rgb(87, 63, 218));
+  }
+  50% {
+    background: linear-gradient(225deg, rgb(237, 166, 84), rgb(242, 109, 61), rgb(216, 65, 110), rgb(122, 62, 211), rgb(87, 63, 218));
+  }
+  100% {
+    background: linear-gradient(45deg, rgb(237, 166, 84), rgb(242, 109, 61), rgb(216, 65, 110), rgb(122, 62, 211), rgb(87, 63, 218));
+  }
+}

@@ -17,7 +17,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(-45deg, rgb(237 166 84), rgb(242 109 61), rgb(216 65 110), rgb(122 62 211), rgb(87 63 218));
+  background: linear-gradient(44.78deg, #EDA654 14.81%, #F26D3D 32.48%, #E55755 39.93%, #D8416E 49.32%, #7A3ED3 70.3%, #573FDA 85.21%);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -32,66 +32,6 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}
-
-@keyframes appearance {
-  0% {
-    opacity: 0;
-    transform: scale(0,0);
-  }
-  100% {
-    opacity:1;
-    transform:scale(1,1)
-  }
-}
-
-
-@keyframes moveRight {
-  0% {
-    transform: translateX(0);
-    animation-timing-function: linear;
-  }
-  80% {
-    transform: translateX(0);
-    animation-timing-function: ease-in;
-  }
-  100% {
-    transform: translateX(111px);
-  }
-}
-
-@keyframes appearance-top {
-  from{
-    opacity: 0;
-    transform: perspective(1000px) translateY(100px) rotate3d(-100, 0, 0, 0deg);
-  }
-  to{
-    opacity: 1;
-    transform: perspective(500px) translateY(0);
-  }
-}
-
-@keyframes appearance-bottom {
-  from{
-    opacity: 0;
-    transform: perspective(1000px) translateY(-100px) rotate3d(-100, 0, 0, 0deg);
-  }
-  to{
-    opacity: 1;
-    transform: perspective(-500px) translateY(0);
-  }
 }
 
 .cta__link {
@@ -110,9 +50,18 @@ body {
     right: -4px;
     left: -4px;
     bottom: -4px;
-    background: linear-gradient(20deg, rgb(237, 166, 84), rgb(242, 109, 61), rgb(216, 65, 110), rgb(122, 62, 211), rgb(87, 63, 218));
+    background: linear-gradient(45deg, rgb(237, 166, 84), rgb(242, 109, 61), rgb(216, 65, 110), rgb(122, 62, 211), rgb(87, 63, 218));
     border-radius: 6px;
     z-index: -1;
+    animation: gradient 3s infinite;
+    overflow: hidden;
+  }
+  &:hover {
+    transform: scale(1.1);
+    transition: transform .2s ease;
+    &::after {
+      transform: rotate(180deg);
+    }
   }
 }
 .js-animated {
@@ -132,11 +81,10 @@ body {
 }
 
 .caption {
-  color: #666666;
+  color: #cccccc;
   line-height: 1;
-  font-size: 21px;
+  font-size: 22px;
   font-weight: 400;
-  letter-spacing: 1.4px;
 }
 
 .title-h2 {

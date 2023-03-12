@@ -1,6 +1,5 @@
 import '../styles/styles.scss';
 import JustValidate from "just-validate";
-import { companies } from "./companies.js";
 
 const menu = document.getElementById('menu');
 const switcher = document.getElementById('switcher');
@@ -39,7 +38,6 @@ const meta = document.head.querySelector('meta[name="viewport"]');
 meta.setAttribute('content', `width=${viewport}, user-scalable=no`);
 
 function zoomer() {
-  const links = document.querySelectorAll('.nav__link');
   const width = window.innerWidth;
   const result = {
     viewport: null,
@@ -48,10 +46,6 @@ function zoomer() {
   if (width >= 768) {
     result.viewport = 1200;
   } else if (width < 768) {
-    for (let link = 0; link < links.length; link++) {
-      links[link].classList.add('animated-text');
-      links[link].classList.add('gradient-text');
-    }
     result.viewport = 375;
   }
   return result;
@@ -71,7 +65,6 @@ for (let i = 1; i < 6; i++) {
     ease: 'none',
   });
 }
-
 gsap.to('.js-gsap-main-title', {
   scrollTrigger: {
     trigger: '.js-gsap-main-title',
@@ -261,149 +254,3 @@ async function sendForm(e) {
 checkSubmit();
 form.addEventListener('input', checkSubmit);
 form.addEventListener('submit', sendForm);
-
-function touchSwipe(wrapper, sw) {
-  let touchStartX;
-  let touchEndX
-
-  const handleSwipe = () => {
-    if (touchEndX - touchStartX < -70) {
-      sw.slideNext()
-    } else if (touchEndX - touchStartX > 70) {
-      sw.slidePrev()
-    }
-  };
-
-  document.querySelector(wrapper).addEventListener('touchstart', (event) => {
-    touchStartX = event.changedTouches[0].clientX;
-  });
-
-  document.querySelector(wrapper).addEventListener('touchend', (event) => {
-    touchEndX = event.changedTouches[0].clientX;
-    handleSwipe();
-  });
-};
-
-let swiper = new Swiper(".mySwiper", {
-  effect: "cards",
-  loop: true,
-  loopedSlides: 3,
-  slidesPerView: 1,
-  centeredSlides: true,
-  autoplay: true,
-  grabCursor: false,
-  initialSlide: 2,
-  allowTouchMove: false,
-  simulateTouch: false,
-  noSwipingClass: 'swiper-no-swiping',
-  keyboard: {
-  enabled: true,
-  },
-  cardsEffect: {
-    rotate: false,
-    slideShadows: false,
-    perSlideOffset: 8,
-  },
-  navigation: {
-    nextEl: '.mySwiper__prev',
-    prevEl: '.mySwiper__next',
-  },
-  on: {
-    afterInit(sw) {
-      touchSwipe('.services__content', sw);
-    }
-  }
-});
-
-
-let swiperSec = new Swiper(".mySwiperSec", {
-  effect: "cards",
-  loop: true,
-  loopedSlides: 3,
-  slidesPerView: 1,
-  centeredSlides: true,
-  autoplay: true,
-  grabCursor: false,
-  initialSlide: 2,
-  allowTouchMove: false,
-  simulateTouch: false,
-  noSwipingClass: 'swiper-no-swiping',
-  keyboard: {
-    enabled: true,
-  },
-  cardsEffect: {
-    rotate: false,
-    slideShadows: false,
-    perSlideOffset: 8,
-  },
-  navigation: {
-    nextEl: '.mySwiperSec__prev',
-    prevEl: '.mySwiperSec__next',
-  },
-  on: {
-    afterInit(sw) {
-      touchSwipe('.accounts__content', sw);
-    }
-  }
-})
-
-let swiperThird = new Swiper(".mySwiperThird", {
-  effect: "cards",
-  loop: true,
-  loopedSlides: 3,
-  slidesPerView: 1,
-  centeredSlides: true,
-  autoplay: true,
-  grabCursor: false,
-  initialSlide: 2,
-  allowTouchMove: false,
-  simulateTouch: false,
-  noSwipingClass: 'swiper-no-swiping',
-  keyboard: {
-    enabled: true,
-  },
-  cardsEffect: {
-    rotate: false,
-    slideShadows: false,
-    perSlideOffset: 8,
-  },
-  navigation: {
-    nextEl: '.mySwiperThird__prev',
-    prevEl: '.mySwiperThird__next',
-  },
-  on: {
-    afterInit(sw) {
-      touchSwipe('.work__content', sw);
-    }
-  }
-});
-
-const slides = document.getElementsByClassName('js-slide-btn');
-
-function openModal(id, title, caption) {
-  if (id) {
-    formPopup.innerHTML = `
-    <div class="popup-card active modal">
-      <h4>${title}</h4>
-      <p>${caption}</p>
-      <button class="popup-card__btn"><span></span></button>
-    </div>
-  `
-    document.body.classList.add('_hidden');
-
-    const popupBtn = document.querySelector('.popup-card__btn');
-
-    popupBtn.addEventListener('click', closePopup);
-  }
-}
-
-for (let i = 0; i < slides.length; i++) {
-  slides[i].addEventListener('click', (e) => {
-    let dataset = e.target.dataset;
-    for (let j = 0; j < companies.length; j++) {
-      formPopup.classList.add('_active');
-      companies[j].id = dataset.id
-      openModal(companies[j].id, companies[j].title, companies[j].caption);
-    }
-  })
-}

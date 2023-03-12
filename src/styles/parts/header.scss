@@ -8,29 +8,29 @@
   -webkit-backdrop-filter: blur(3px);
   z-index: 20;
   &__inner {
-    padding: 17px 40px;
+    padding: 0 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    &-inn {
-      width: calc(100% - 240px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
   }
   &__logo {
     display: flex;
     align-items: center;
     z-index: 10;
+    width: 130px;
   }
   &__border {
     width: 100%;
     height: 2px;
-    background: linear-gradient(-45deg, rgb(237 166 84), rgb(242 109 61), rgb(216 65 110), rgb(122 62 211), rgb(87 63 218));
-    background-size: 400%;
-    animation: gradient 5s ease infinite;
+    background: linear-gradient(45deg, rgb(237, 166, 84), rgb(242, 109, 61), rgb(216, 65, 110), rgb(122, 62, 211), rgb(87, 63, 218));
+    background-size: 200%;
+    animation: gradient 5s linear infinite;
     transform: translate3d(0, 0, 0);
+  }
+  &__nav {
+    &.nav__social{
+      display: none;
+    }
   }
   &__burger {
     display: none;
@@ -38,11 +38,14 @@
   &__mail {
     display: none;
   }
+  &__cta-mob {
+    display: none;
+  }
 }
 
 .nav {
   &__links {
-    max-width: 50%;
+    max-width: 400px;
     width: 100%;
   }
   &__social {
@@ -54,38 +57,31 @@
     justify-content: space-between;
   }
   &__link {
-    font-size: 12px;
+    font-size: 16px;
     position: relative;
+    color: #cccccc;
+    transition: color .3s ease;
     &::before, &::after {
       position: absolute;
-      font-size: 17px;
+      font-size: 20px;
+      top: -4px;
       z-index: 5;
       opacity: 0;
     }
     &::before {
       content: '[';
-      left: -8px;
+      left: -10px;
     }
     &::after {
       content: ']';
-      right: -8px;
+      right: -10px;
     }
     &:hover {
-      background: linear-gradient(-45deg, rgb(237 166 84), rgb(242 109 61), rgb(216 65 110), rgb(122 62 211), rgb(87 63 218));
-      background-size: 400% 400%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -webkit-box-decoration-break: clone;
-      animation: gradient 5s ease infinite;
+      color: #ffffff;
       &::before, &::after {
         opacity: 1;
         transition: opacity .3s ease;
-        background: linear-gradient(-45deg, rgb(237 166 84), rgb(242 109 61), rgb(216 65 110), rgb(122 62 211), rgb(87 63 218));
-        background-size: 400% 400%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -webkit-box-decoration-break: clone;
-        animation: gradient 5s ease infinite;
+        color: #ffffff;
       }
     }
   }
@@ -93,8 +89,8 @@
 
 .nav {
   &__item-social {
-    width: 17px;
-    height: 17px;
+    width: 24px;
+    height: 24px;
     transition: transform .4s;
     &:hover {
       transform: scale(1.3);
@@ -105,35 +101,30 @@
   }
 }
 
-.logo {
-  &__img {
-    &-name {
-      margin-right: 4px;
-      width: 168px;
-    }
-    &-pma {
-      width: 38px;
-    }
-  }
+.logo__img {
+  width: 210px;
+  height: 60px;
 }
 
 @media screen and (max-width: 767px) {
   .header {
     &__inner {
-      padding: 17px 15px;
-      &-inn {
+      padding: 0 15px;
+      .nav {
         position: fixed;
         top: -467px;
         left: 0;
         z-index: 5;
         width: 100%;
+        display: flex;
+        align-items: center;
         flex-direction: column;
         justify-content: flex-start;
         transition: all 1s ease;
         background-color: #121212;
         backdrop-filter: blur(3px);
         &._active {
-          top: 60px;
+          top: 62px;
           padding-bottom: 100vh;
         }
       }
@@ -174,6 +165,12 @@
     }
     &__cta {
       order: 2;
+      &-desk {
+        display: none;
+      }
+      &-mob {
+        display: block;
+      }
     }
     &__mail {
       order: 3;
@@ -183,16 +180,7 @@
       background-image: url("public/gradient-bg.png");
       background-size: 100% 240px;
       background-position: center 46%;
-    }
-  }
-  .logo {
-    &__img {
-      &-name {
-        width: 110px;
-      }
-      &-pma {
-        width: 30px;
-      }
+      text-decoration: none;
     }
   }
   .nav {
@@ -220,5 +208,9 @@
     &__social {
       order: 4;
     }
+  }
+
+  .logo__img {
+    width: 140px;
   }
 }

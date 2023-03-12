@@ -16,17 +16,13 @@
     max-width: 538px;
     overflow: hidden;
     p {
-      margin-bottom: 8px;
+      margin-bottom: 14px;
       text-align: justify;
-      line-height: 16px;
-      font-size: 12px;
+      line-height: 20px;
+      font-size: 16px;
       font-weight: 400;
-      letter-spacing: 1px;
       opacity: 0;
-      transform: translateY(100%);
-      &:not(:last-child) {
-        text-indent: 20px;
-      }
+      transform: translateY(50%);
       &._show {
         opacity: 1;
         transition: all 1s;
@@ -52,9 +48,9 @@
     }
     &__text {
       p {
-        margin-bottom: 6px;
-        font-size: 10px;
-        line-height: 13px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 18px;
         transform: translateY(50%);
       }
     }
