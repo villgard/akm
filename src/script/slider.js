@@ -225,13 +225,16 @@ function touchSwipe(wrapper, sw) {
 }
 
 function openMockup(index) {
-  mockupContainer.classList.add('_active');
   mockupContainer.innerHTML = `
     <div class="mockup-wrapper">
       <img src="sw0.png" alt="mockup">
       <video src="${index+1}.mp4" loop autoplay muted></video>
-      <span class="popup-card__btn close"><span></span></span>
+      <span class="popup-card__btn close js-mockup-close"><span></span></span>
     </div>
-`;
-
+  `;
+  mockupContainer.classList.add('_active');
+  document.querySelector('.js-mockup-close').addEventListener('click', () => {
+    mockupContainer.classList.remove('_active');
+    mockupContainer.innerHTML = '';
+  })
 }
