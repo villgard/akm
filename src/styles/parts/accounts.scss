@@ -36,13 +36,13 @@
   top: -150px;
   left: 0;
   display: none;
-
+  backdrop-filter: blur(30px);
   &._active {
     display: block;
   }
-
-  .swiperStat { //temp
-    overflow: visible;
+  .swiper.swiperStat {
+    max-width: 300px;
+    width: 100%;
   }
   .slide-card {
     .slide-card__header {
@@ -66,7 +66,6 @@
       text-align: start;
       text-transform: none;
       align-items: flex-start;
-      justify-content: flex-start;
 
       .title {
         text-align: start;
@@ -241,17 +240,33 @@
     flex-direction: column;
     justify-content: flex-start;
     margin-bottom: 20px;
+    position: relative;
     h2 {
       img {
         top: -33px;
       }
     }
     &__heading {
-      margin-bottom: 40px;
+      p {
+        margin-bottom: 400px;
+      }
     }
-
+    &__content {
+      position: absolute;
+      top: 200px;
+    }
     .swiper {
       width: 180px;
+    }
+  }
+  .slider-stat {
+    top: 120px;
+    height: 430px;
+    .slide-card__header {
+      height: 102px;
+    }
+    .slide-card__caption {
+
     }
   }
 }

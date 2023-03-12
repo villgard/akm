@@ -41,6 +41,10 @@ let swiper = new Swiper(".mySwiper", {
   }
 });
 
+swiper.on('init', (i) => {
+  console.log(i);
+});
+
 
 let swiperSec = new Swiper(".mySwiperSec", {
   effect: "cards",
@@ -72,37 +76,7 @@ let swiperSec = new Swiper(".mySwiperSec", {
   }
 })
 
-let swiperStat = new Swiper('.swiperStat', {
-  effect: "cards",
-  loop: true,
-  slidesPerView: 1,
-  centeredSlides: true,
-  grabCursor: true,
-  loopedSlides: 3,
-  initialSlide: 0,
-  autoplay: true,
-  allowTouchMove: false,
-  simulateTouch: false,
-  noSwipingClass: 'swiper-no-swiping',
-  setWrapperSize: true,
-  keyboard: {
-    enabled: true,
-  },
-  cardsEffect: {
-    rotate: false,
-    slideShadows: false,
-    perSlideOffset: 1,
-  },
-  navigation: {
-    nextEl: '.swiperStat__prev',
-    prevEl: '.swiperStat__next',
-  },
-  on: {
-    afterInit(sw) {
-      touchSwipe('.slider-stat', sw);
-    }
-  }
-})
+
 
 const accTitle = document.querySelector('.js-accounts-title');
 const accCaption = document.querySelector('.js-accounts-caption');
@@ -134,6 +108,37 @@ function openInfo(index) {
 
   statSliderContainer.innerHTML = statSwiperTemplate(index);
 
+  let swiperStat = new Swiper('.swiperStat', {
+    effect: "cards",
+    loop: true,
+    slidesPerView: 1,
+    centeredSlides: true,
+    grabCursor: true,
+    loopedSlides: 3,
+    initialSlide: 0,
+    allowTouchMove: false,
+    simulateTouch: false,
+    noSwipingClass: 'swiper-no-swiping',
+    setWrapperSize: true,
+    keyboard: {
+      enabled: true,
+    },
+    cardsEffect: {
+      rotate: false,
+      slideShadows: false,
+      perSlideOffset: 1,
+    },
+    navigation: {
+      nextEl: '.swiperStat__prev',
+      prevEl: '.swiperStat__next',
+    },
+    on: {
+      afterInit(sw) {
+        touchSwipe('.slider-stat', sw);
+      }
+    }
+  })
+
   const closeBtns = document.querySelectorAll('.close');
 
   closeBtns.forEach((btn) => {
@@ -155,7 +160,7 @@ let swiperThird = new Swiper(".mySwiperThird", {
   centeredSlides: true,
   autoplay: false,
   grabCursor: false,
-  initialSlide: 2,
+  initialSlide: 0,
   allowTouchMove: false,
   simulateTouch: false,
   noSwipingClass: 'swiper-no-swiping',
@@ -168,8 +173,8 @@ let swiperThird = new Swiper(".mySwiperThird", {
     perSlideOffset: 8,
   },
   navigation: {
-    nextEl: '.mySwiperThird__prev',
-    prevEl: '.mySwiperThird__next',
+    nextEl: '.mySwiperThird__next',
+    prevEl: '.mySwiperThird__prev',
   },
   on: {
     afterInit(sw) {
@@ -177,6 +182,25 @@ let swiperThird = new Swiper(".mySwiperThird", {
     }
   }
 });
+
+const swiperThirdButtons = document.querySelectorAll('.js-slide-btn');
+const mockupContainer = document.querySelector('.js-mockup');
+let swiperThirdIndex = 0;
+
+swiperThird.on('activeIndexChange', (i) => {
+  swiperThirdButtons.forEach((btn) => {
+    if (i.realIndex === 1) {
+      btn.classList.add('_hidden');
+    } else {
+      btn.classList.remove('_hidden')
+    }
+    swiperThirdIndex = i.realIndex;
+  })
+})
+
+swiperThirdButtons.forEach((btn) => {
+  btn.addEventListener('click', () => openMockup(swiperThirdIndex))
+})
 
 function touchSwipe(wrapper, sw) {
   let touchStartX;
@@ -200,3 +224,14 @@ function touchSwipe(wrapper, sw) {
   });
 }
 
+function openMockup(index) {
+  mockupContainer.classList.add('_active');
+  mockupContainer.innerHTML = `
+    <div class="mockup-wrapper">
+      <img src="sw0.png" alt="mockup">
+      <video src="${index+1}.mp4" loop autoplay muted></video>
+      <span class="popup-card__btn close"><span></span></span>
+    </div>
+`;
+
+}

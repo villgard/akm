@@ -56,12 +56,12 @@ for (let i = 1; i < 6; i++) {
   gsap.to(`.js-gsap-title-bg-${i}`, {
     scrollTrigger: {
       trigger: `.js-gsap-title-bg-${i}`,
-      start: 'top bottom',
-      end: 'bottom top',
+      start: '50px bottom',
+      end: 'bottom 600px',
       scrub: true,
       toggleActions: 'restart pause resume pause'
     },
-    scale: 2.1,
+    scale: 2.6,
     ease: 'none',
   });
 }

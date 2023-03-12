@@ -72,6 +72,10 @@ body {
     animation-delay: 0.5s;
   }
 }
+
+.js-slide-btn._hidden {
+  display: none;
+}
 .mail__link {
   font-size: 20px;
   text-decoration: underline;
