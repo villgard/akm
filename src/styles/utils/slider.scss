@@ -22,10 +22,12 @@
 .slider {
   &__nav {
     position: absolute;
+    z-index: 20;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
+    pointer-events: none;
 
     @media (max-width: 767px) {
       display: none;
@@ -35,7 +37,7 @@
       transform: translateY(-50%);
       transition: 200ms ease-in-out;
       cursor: pointer;
-
+      pointer-events: auto;
       &:hover {
         opacity: .6;
       }

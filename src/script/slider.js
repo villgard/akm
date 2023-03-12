@@ -4,23 +4,17 @@ import { accounts } from "./accounts.js";
 let swiperPaginationEls = ['BRAND STRATEGY', 'SOCIAL MEDIA', 'TARGET', 'MARKETING STRATEGY', 'ANALYTICS', 'APPS', 'MUSIC', 'E-COMMERCE'];
 
 let swiper = new Swiper(".mySwiper", {
-  effect: "cards",
+  effect: "fade",
   loop: true,
-  loopedSlides: 3,
+  loopedSlides: 1,
   slidesPerView: 1,
   centeredSlides: true,
   grabCursor: false,
   initialSlide: 0,
   allowTouchMove: false,
   simulateTouch: false,
-  noSwipingClass: 'swiper-no-swiping',
   keyboard: {
     enabled: true,
-  },
-  cardsEffect: {
-    rotate: false,
-    slideShadows: false,
-    perSlideOffset: 8,
   },
   navigation: {
     nextEl: '.mySwiper__next',
@@ -39,10 +33,6 @@ let swiper = new Swiper(".mySwiper", {
       touchSwipe('.services__content', sw);
     }
   }
-});
-
-swiper.on('init', (i) => {
-  console.log(i);
 });
 
 
@@ -109,24 +99,17 @@ function openInfo(index) {
   statSliderContainer.innerHTML = statSwiperTemplate(index);
 
   let swiperStat = new Swiper('.swiperStat', {
-    effect: "cards",
+    effect: "fade",
     loop: true,
+    loopedSlides: 1,
     slidesPerView: 1,
     centeredSlides: true,
-    grabCursor: true,
-    loopedSlides: 3,
+    grabCursor: false,
     initialSlide: 0,
     allowTouchMove: false,
     simulateTouch: false,
-    noSwipingClass: 'swiper-no-swiping',
-    setWrapperSize: true,
     keyboard: {
       enabled: true,
-    },
-    cardsEffect: {
-      rotate: false,
-      slideShadows: false,
-      perSlideOffset: 1,
     },
     navigation: {
       nextEl: '.swiperStat__prev',
@@ -225,10 +208,11 @@ function touchSwipe(wrapper, sw) {
 }
 
 function openMockup(index) {
+  console.log(index);
   mockupContainer.innerHTML = `
     <div class="mockup-wrapper">
       <img src="sw0.png" alt="mockup">
-      <video src="${index+1}.mp4" loop autoplay muted></video>
+      <video src="${index}.mp4" loop autoplay muted></video>
       <span class="popup-card__btn close js-mockup-close"><span></span></span>
     </div>
   `;

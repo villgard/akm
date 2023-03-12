@@ -19,13 +19,14 @@
     margin: 40px auto;
     text-decoration: none;
     transition: all .6s ease;
+    color: #cccccc;
     &:hover {
       transform: scale(0.9, 0.9);
       color: #ffffff;
     }
   }
   &__list-social {
-    max-width: 150px;
+    max-width: 180px;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -34,10 +35,10 @@
   }
   &__item-social {
     img {
-      width: 31px;
-      transition: transform .3s linear;
+      width: 40px;
+      transition: transform .2s linear;
       &:hover {
-        transform: scale(1.1, 1.1);
+        transform: scale(1.2);
       }
     }
   }
@@ -82,6 +83,7 @@
         opacity: 1;
         transition: all .6s ease;
         bottom: 0;
+        overflow: hidden;
       }
     }
   }
@@ -168,6 +170,7 @@
     appearance: none;
     background-color: transparent;
     cursor: pointer;
+    pointer-events: auto;
     span {
       position: absolute;
       top: 10px;
@@ -231,21 +234,21 @@
       overflow: hidden;
     }
     &__list-social {
-      max-width: 60%;
+      max-width: 50%;
       width: 100%;
     }
     &__item-social {
       img {
-        width: 19px;
+        width: 30px;
       }
     }
     &__text {
-      font-size: 16px;
+      font-size: 18px;
       line-height: 21px;
     }
     &__subtext {
       display: inline;
-      font-size: 10px;
+      font-size: 11px;
       &._show {
         &::before {
           height: 100%;
@@ -256,10 +259,8 @@
 
   .form {
     &-button {
-      width: 132px;
-      font-size: 12px;
-      padding-top: 4px;
-      padding-bottom: 4px;
+      width: auto;
+      font-size: 14px;
     }
   }
 }

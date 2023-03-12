@@ -254,6 +254,7 @@
     &__content {
       position: absolute;
       top: 200px;
+      width: calc(100% - 30px);
     }
     .swiper {
       width: 180px;
@@ -262,11 +263,13 @@
   .slider-stat {
     top: 120px;
     height: 430px;
+    backdrop-filter: blur(0);
+
     .slide-card__header {
       height: 102px;
     }
     .slide-card__caption {
-
+      height: 300px;
     }
   }
 }
