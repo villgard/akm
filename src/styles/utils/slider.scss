@@ -86,7 +86,6 @@
   flex-direction: column;
   border-radius: 15px;
   .mask{
-    content: '';
     position: absolute;
     inset: 0;
     width: 100%;
@@ -220,13 +219,36 @@
 
 .mySwiper {
   position: absolute;
-  top: 0;
-  left: -80%;
-  z-index: 40;
+  top: 15%;
+  left: 12%;
+  z-index: 30;
+  overflow: visible;
+  .slide-card__header {
+    justify-content: flex-start;
+    padding: 0 15px;
+    h3 {
+      font-size: 21px;
+    }
+  }
   .slider {
     &__nav {
       left: -120px;
       width: 540px;
+      & > div {
+        z-index: 40;
+      }
+    }
+  }
+  &._hidden {
+    display: none;
+  }
+  .close {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    span,
+    span::after {
+      background-color: #ffffff;
     }
   }
 }
@@ -271,6 +293,23 @@
     }
     &-active {
       color: #ffffff;
+    }
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .mySwiper {
+    width: 300px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .slider__pagination {
+    .swiper-pagination-bullet {
+      box-sizing: border-box;
+      height: 50px;
     }
   }
 }

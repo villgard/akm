@@ -24,11 +24,6 @@
       opacity: 0;
       transform: translateY(75%);
       transition: 400ms linear;
-      &._show {
-        opacity: 1;
-        transition: all 1s;
-        transform: translateY(0%);
-      }
     }
 
     &.animated {
@@ -58,10 +53,6 @@
       line-height: 47px;
       font-size: 30px;
       margin-bottom: 60px;
-
-      img {
-        top: -33px;
-      }
     }
     &__text {
       p {

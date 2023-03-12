@@ -2,8 +2,9 @@ import { statSwiperTemplate } from "./statSwiperTemplate.js";
 import { accounts } from "./accounts.js";
 
 let swiperPaginationEls = ['BRAND STRATEGY', 'SOCIAL MEDIA', 'TARGET', 'MARKETING STRATEGY', 'ANALYTICS', 'APPS', 'MUSIC', 'E-COMMERCE'];
+const mySwiper = document.querySelector('.mySwiper');
 
-let swiper = new Swiper(".mySwiper", {
+let swiper = new Swiper(mySwiper, {
   effect: "fade",
   loop: true,
   loopedSlides: 1,
@@ -35,6 +36,24 @@ let swiper = new Swiper(".mySwiper", {
   }
 });
 
+
+const menuBullets = document.querySelectorAll('.swiper-pagination-bullet');
+const closeBtns = document.querySelectorAll('.mySwiper__close');
+
+mySwiper.classList.add('_hidden')
+menuBullets.forEach((b) => {
+  b.addEventListener('click', () => {
+    if (mySwiper.classList.contains('_hidden')) {
+      mySwiper.classList.remove('_hidden');
+    }
+  });
+});
+
+closeBtns.forEach((b) => {
+  b.addEventListener('click', () => {
+    mySwiper.classList.add('_hidden');
+  });
+});
 
 let swiperSec = new Swiper(".mySwiperSec", {
   effect: "cards",

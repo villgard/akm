@@ -4,13 +4,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: relative;
   &__heading {
     max-width: 480px;
     width: 100%;
     text-align: center;
-    img {
-      top: -12px;
-    }
   }
   &__title {
     padding: 40px 0;
@@ -22,8 +20,6 @@
   &__content {
     max-width: 540px;
     width: 100%;
-    position: relative;
-
   }
   &__link {
     font-size: 16px;
@@ -34,16 +30,10 @@
 
 @media screen and (max-width: 767px) {
   .services {
-    position: relative;
     height: 730px;
     margin-bottom: 0;
     flex-direction: column;
     justify-content: flex-start;
-    &__heading {
-      img {
-        top: 7px;
-      }
-    }
     &__content {
       position: absolute;
       bottom: 170px;
