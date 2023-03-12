@@ -171,8 +171,9 @@
       &.animated {
 
         .heading__gradient {
-          width: calc(271px * 3.2);
-          height: calc(169px * 3.2);
+          top: 46%;
+          width: calc(271px * 2);
+          height: calc(169px * 2.1);
         }
 
         h1 {
