@@ -108,7 +108,7 @@
       visibility: hidden;
       opacity: 0;
       position: absolute;
-      z-index: 1;
+      z-index: -1;
       line-height: 1.55;
       font-size: 92px;
       font-weight: 600;
@@ -148,6 +148,7 @@
         line-height: 27px;
         background-size: 100% 240px;
         letter-spacing: 1px;
+        zoom: 1.35;
         text-align: center;
         &::before, &::after {
           width: 9px;
@@ -167,6 +168,10 @@
         line-height: 1;
         font-size: 36px;
         text-align: center;
+        opacity: 1;
+        zoom: 1.2;
+        top: 50%;
+        transform: translateY(-66%);
       }
       &.animated {
 

@@ -112,6 +112,7 @@
 
 @media screen and (max-width: 767px) {
   .header {
+    max-height: 64px;
     &__inner {
       padding: 0 15px;
       .nav {
@@ -128,10 +129,13 @@
         background-color: #121212;
         backdrop-filter: blur(3px);
         &._active {
-          top: 62px;
+          top: 64px;
           padding-bottom: 100vh;
         }
       }
+    }
+    &__border {
+      height: 4px;
     }
     &__mail {
       display: block;
@@ -212,9 +216,5 @@
     &__social {
       order: 4;
     }
-  }
-
-  .logo__img {
-    width: 140px;
   }
 }
