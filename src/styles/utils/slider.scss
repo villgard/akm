@@ -171,10 +171,16 @@
       justify-content: center;
     }
     &-btn {
-      background: #1A1A1A;
-      padding: 2px 10px;
       margin-bottom: 30px;
       color: #cccccc;
+      span {
+        padding: 0 10px;
+        background: #1A1A1A;
+      }
+      &::after {
+        top: -4px;
+        bottom: -4px;
+      }
       &:hover {
         color: #ffffff;
       }
