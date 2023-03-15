@@ -83,7 +83,8 @@ body {
 }
 
 .js-slide-btn._hidden {
-  display: none;
+  visibility: hidden;
+  pointer-events: none;
 }
 .mail__link {
   font-size: 20px;

@@ -1,8 +1,8 @@
 import { statSwiperTemplate } from "./statSwiperTemplate.js";
 import { accounts } from "./accounts.js";
 
-let swiperPaginationEls = ['BRAND STRATEGY', 'SOCIAL MEDIA', 'TARGET', 'MARKETING STRATEGY', 'ANALYTICS', 'APPS', 'MUSIC', 'E-COMMERCE'];
 const mySwiper = document.querySelector('.mySwiper');
+const swiperPaginationEls = ['BRAND STRATEGY', 'SOCIAL MEDIA', 'TARGET', 'MARKETING STRATEGY', 'ANALYTICS', 'APPS', 'MUSIC', 'E-COMMERCE'];
 
 let swiper = new Swiper(mySwiper, {
   effect: "fade",
@@ -40,18 +40,17 @@ let swiper = new Swiper(mySwiper, {
 const menuBullets = document.querySelectorAll('.swiper-pagination-bullet');
 const closeBtns = document.querySelectorAll('.mySwiper__close');
 
-mySwiper.classList.add('_hidden')
 menuBullets.forEach((b) => {
   b.addEventListener('click', () => {
-    if (mySwiper.classList.contains('_hidden')) {
-      mySwiper.classList.remove('_hidden');
+    if (!mySwiper.classList.contains('_active')) {
+      mySwiper.classList.add('_active');
     }
   });
 });
 
 closeBtns.forEach((b) => {
   b.addEventListener('click', () => {
-    mySwiper.classList.add('_hidden');
+    mySwiper.classList.remove('_active');
   });
 });
 
@@ -144,15 +143,9 @@ function openInfo(index) {
   const closeBtns = document.querySelectorAll('.close');
 
   closeBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      statSliderContainer.classList.remove('_active');
-      statSliderContainer.innerHTML = '';
-    })
+    btn.addEventListener('click', () => close(statSliderContainer))
   })
 }
-
-
-
 
 let swiperThird = new Swiper(".mySwiperThird", {
   effect: "cards",
@@ -227,7 +220,6 @@ function touchSwipe(wrapper, sw) {
 }
 
 function openMockup(index) {
-  console.log(index);
   mockupContainer.innerHTML = `
     <div class="mockup-wrapper">
       <img src="sw0.png" alt="mockup">
@@ -236,8 +228,24 @@ function openMockup(index) {
     </div>
   `;
   mockupContainer.classList.add('_active');
-  document.querySelector('.js-mockup-close').addEventListener('click', () => {
-    mockupContainer.classList.remove('_active');
-    mockupContainer.innerHTML = '';
-  })
+  document.querySelector('.js-mockup-close').addEventListener('click', () => close(mockupContainer));
+}
+
+document.addEventListener('mousedown', (e) => {
+  if (mySwiper.classList.contains('_active') && !e.composedPath().includes(mySwiper)) {
+    mySwiper.classList.remove('_active');
+  }
+
+  if (statSliderContainer.classList.contains('_active') && !e.composedPath().includes(statSliderContainer)) {
+    close(statSliderContainer);
+  }
+
+  if (mockupContainer.classList.contains('_active') && !e.composedPath().includes(mockupContainer)) {
+    close(mockupContainer);
+  }
+});
+
+function close(str) {
+  str.classList.remove('_active');
+  str.innerHTML = '';
 }
